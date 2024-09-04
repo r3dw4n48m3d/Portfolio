@@ -1082,6 +1082,149 @@
         </section>
       </div>
     </div>
+    <!--FORM-->
+    <style>
+        /* styles.css */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+
+    </style>
+    <script>
+      // script.js
+document.getElementById("contractForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const contractType = document.getElementById("contractType").value;
+    const startDate = document.getElementById("startDate").value;
+    const terms = document.getElementById("terms").value.trim();
+    const signature = document.getElementById("signature").value.trim();
+    const agree = document.getElementById("agree").checked;
+
+    if (fullName === "" || email === "" || phoneNumber === "" || contractType === "" || startDate === "" || terms === "" || signature === "" || !agree) {
+        alert("Please fill out all fields and agree to the terms and conditions.");
+        return;
+    }
+
+    alert("Form submitted successfully!");
+    // You can add further processing here, such as sending the data to a server
+});
+
+    </script>
+    <div class="container">
+        <form id="contractForm" method="POST" action="script.php">
+            <h2>Contract Form</h2>
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="contractType">Contract Type</label>
+            <select id="contractType" name="contractType" required>
+                <option value="">Select a contract type</option>
+                <option value="employment">Employment</option>
+                <option value="freelance">Freelance</option>
+                <option value="service">Service</option>
+                <option value="sales">Sales</option>
+            </select>
+
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label for="terms">Terms and Conditions</label>
+            <textarea id="terms" name="terms" required></textarea>
+
+            <label for="signature">Signature</label>
+            <input type="text" id="signature" name="signature" required>
+
+            <div class="checkbox">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree to the terms and conditions</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
     <div
       data-elementor-type="footer"
       data-elementor-id="1598"
