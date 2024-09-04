@@ -1,8 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['form-field-name']);
-    $email = htmlspecialchars($_POST['form-field-email']);
-    $message = htmlspecialchars($_POST['form-field-message']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
 
     // Email details
     $to = "redwan.pentester@gmail.com";
@@ -16,5 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Message sending failed.";
     }
+    header("Location: ./index.html")
 }
 ?>
