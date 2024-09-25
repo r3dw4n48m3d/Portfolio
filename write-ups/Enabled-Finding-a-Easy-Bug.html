@@ -34,20 +34,41 @@ In this article, we will discuss a vulnerability known as "Clipboard Enabled," w
                 
 <h3 class="article-section-title">What is the Clipboard Enabled Vulnerability?</h3>
               <p class="article-content">The Clipboard Enabled vulnerability occurs when an application allows sensitive information, such as passwords or credit card numbers, to be copied to the clipboard. This can pose a significant security risk, as attackers can exploit this functionality to gain unauthorized access to sensitive user data.</p>
-              <p class="article-content">How to Identify the Clipboard Enabled Vulnerability</p>
-  
+              <h3 class="article-section-title">How to Identify the Clipboard Enabled Vulnerability</h3>
+             <p class="article-content">To demonstrate how to find this vulnerability, follow these steps:</p>
+            <p class="article-content"> 1. Create an Account on the Target Website : Navigate to your testing website and create an account. Use a password for this demonstration. For example, I will useed.</p>
+            
              <!-- Code Section -->
                <div class="code-block">
-                    <p>admin' OR '1'='1</p>
+                    <p>password123</p>
                 </div>
                 <!-- Image Section -->
                 <div class="image-section">
                     <div class="image-container">
-                        <img src="sql-injection-diagram.jpg" alt="SQL Injection Diagram" class="fancy-image">
-                        <p class="image-caption">Figure 1: SQL Injection Exploit Overview</p>
+                        <img src="Enabled-Finding-a-Easy-Bug-01.webp" alt="Enabled-Finding-a-Easy-Bug-01" class="fancy-image">
+                        <p class="image-caption">Create Account Form</p>
                     </div>
                 </div>
-
+                <p class="article-content">2. Enter Your Details : After filling in your details, submit the registration form. Ensure that the password field is filled in properly.</p>
+                <div class="image-section">
+                    <div class="image-container">
+                        <img src="Enabled-Finding-a-Easy-Bug-01.webp" alt="Enabled-Finding-a-Easy-Bug-02" class="fancy-image">
+                        <p class="image-caption">Account Details Submitted</p>
+                    </div>
+                </div>
+                <p class="article-content">3. Testing the Clipboard Functionality : After creating the account, try to copy the password you just set. The following steps illustrate this process:</p>
+                <div class="image-section">
+                    <div class="image-container">
+                        <img src="Enabled-Finding-a-Easy-Bug-02.webp" alt="Enabled-Finding-a-Easy-Bug-02" class="fancy-image">
+                        <p class="image-caption"> Attempting to Copy Password</p>
+                    </div>
+                </div>
+                 <p class="article-content">4. Checking Other Fields : Additionally, check other fields that may contain sensitive information. For example, when entering a debit card number, you may observe that it appears as</p>
+                <div class="code-block">
+                    <p>*********2134</p>
+                </div>
+                <p class="article-content">after masking. If an attacker can copy this masked value, they might be able to retrieve the actual card number if clipboard functionality is enabled.</p>
+                
                 <footer class="footer">
                     <a href="../writeUps.html" class="back-link">← Back to Writeups</a>
                 </footer>
