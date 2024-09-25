@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="profile" href="https://gmpg.org/xfn/11" />
@@ -1082,7 +1084,314 @@
         </section>
 
 
+
+        
+
         <!-- Here will be the writeusp code -->
+
+
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 0px 0px 10px #00ff00;
+}
+
+.terminal {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    width: 100%;
+    animation: flicker 1.5s infinite;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    border-radius: 10px 10px 0 0;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+.yellow {
+    background-color: #ffbd44;
+}
+
+.green {
+    background-color: #00ca4e;
+}
+
+.terminal-title {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.terminal-body {
+    padding: 20px;
+    color: #00ff00;
+    position: relative;
+}
+
+.command {
+    color: #00ff00;
+    font-size: 16px;
+    text-shadow: 0px 0px 10px #00ff00;
+    animation: type 2s steps(30) 1;
+}
+
+@keyframes type {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#blinking-cursor {
+    font-weight: bold;
+    font-size: 18px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.writeups-list {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.writeups-list li {
+    margin-bottom: 20px;
+    opacity: 0; /* Initially hidden for animation */
+    animation: fade-in 0.5s forwards; /* Fade-in animation */
+}
+
+.writeups-list a {
+    text-decoration: none;
+    color: #00ff00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #222;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    flex-wrap: wrap;
+}
+
+.writeups-list a:hover {
+    background-color: #00ff00;
+    color: #000;
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.writeup-title {
+    font-weight: bold;
+    flex-basis: 70%;
+}
+
+.status {
+    color: #ff69b4;
+    font-style: italic;
+    flex-basis: 15%;
+    text-align: right;
+}
+
+.date {
+    color: #bbb;
+    font-size: 14px;
+    flex-basis: 15%;
+    text-align: right;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Slide in */
+    }
+}
+
+/* Slide-in effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .terminal {
+        width: 100%;
+    }
+
+    .writeups-list a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .writeup-title,
+    .status,
+    .date {
+        flex-basis: 100%;
+        text-align: left;
+    }
+
+    .status, .date {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .command {
+        font-size: 14px;
+    }
+
+    .writeups-list a {
+        padding: 8px;
+    }
+
+    .writeup-title {
+        font-size: 16px;
+    }
+
+    .status, .date {
+        font-size: 12px;
+    }
+}
+
+/* Flickering terminal screen effect */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+}
+
+  </style>
+    <div class="container">
+        <h1 class="title">/root/writeups</h1>
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="buttons">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+                <p class="terminal-title">user@r3dw4n:/root/writeups</p>
+            </div>
+            <div class="terminal-body">
+                <p class="command">ls ~/writeups/<span id="blinking-cursor">█</span></p>
+                <ul class="writeups-list">
+                    <li class="fade-in">
+                        <a href="#sql-injection">
+                            <span class="writeup-title">SQL Injection – Database Mining in the Shadows</span>
+                            <span class="status">PWNED</span>
+                        </a>
+                        <span class="date">2024-09-12</span>
+                    </li>
+                    <li class="fade-in">
+                        <a href="#xss-vulnerability">
+                            <span class="writeup-title">XSS – The Art of Silent Execution</span>
+                            <span class="status">EXFILTRATED</span>
+                        </a>
+                        <span class="date">2024-09-18</span>
+                    </li>
+                    <li class="fade-in">
+                        <a href="#csrf-attack">
+                            <span class="writeup-title">CSRF – Forging the Undetectable</span>
+                            <span class="status">COMPROMISED</span>
+                        </a>
+                        <span class="date">2024-09-25</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    let terminalBody = document.querySelector('.command');
+    let commandText = "ls ~/writeups/";
+    let cursor = document.getElementById("blinking-cursor");
+
+    // Typing effect
+    let index = 0;
+    function typeCommand() {
+        if (index < commandText.length) {
+            terminalBody.innerHTML += commandText.charAt(index);
+            index++;
+            setTimeout(typeCommand, 100); // 100ms typing delay
+        } else {
+            cursor.style.display = "inline";
+        }
+    }
+
+    // Fade-in effects for list items
+    const fadeItems = document.querySelectorAll('.fade-in');
+    fadeItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = 1; // Set opacity to 1 to show item
+            item.style.transform = 'translateY(0)'; // Move item into position
+        }, index * 300); // Stagger the fade-in effect
+    });
+
+    setTimeout(typeCommand, 1000); // Start typing after 1 second
+});
+
+    </script>
+
+        
+        
         <div
       data-elementor-type="footer"
       data-elementor-id="1598"
