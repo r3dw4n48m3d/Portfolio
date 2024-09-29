@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/fabicon.png" sizes="32x32" />
+    <link rel="icon" href="../images/fabicon.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./images/fabicon.png" />
+    <title>How I stay updated with CVEs? - Redwan Ahmed</title>
+    <link rel="stylesheet" href="writeups.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">./r3dw4n/writeups/How I stay updated with CVEs?</h1>
+      </header>
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="buttons">
+            <span class="red"></span>
+            <span class="yellow"></span>
+            <span class="green"></span>
+          </div>
+          <p class="terminal-title">
+            user@r3dw4n:./r3dw4n/writeups/How I stay updated with CVEs?
+          </p>
+        </div>
+        <div class="terminal-body">
+          <h2 class="article-title">How I stay updated with CVEs?</h2>
+          <p class="article-date">Written on: 2024-09-29</p>
+
+          <h3 class="article-section-title">Introduction</h3>
+          <p class="article-content">
+            Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh. Hope you all are
+            doing well. In this writeup, I will be sharing my approach to stay
+            updated with the latest Common Vulnerabilities and Exposures. So
+            let's begin.
+          </p>
+
+          <h3 class="article-section-title">
+            What is the CVE or Common Vulnerabilities and Exposures??
+          </h3>
+          <p class="article-content">
+            Common Vulnerabilities and Exposures (CVE) is a standardized system
+            designed to identify and categorize publicly known vulnerabilities
+            in software and hardware. Each vulnerability is assigned a unique
+            identifier, known as a CVE ID, which follows the format
+            "CVE-Year-Number" (e.g., CVE-2023-12345). This system is managed by
+            the MITRE Corporation and is widely recognized across the
+            cybersecurity industry. The purpose of CVE is to provide a common
+            reference for discussing and addressing security flaws, enabling
+            organizations, researchers, and security professionals to
+            collaborate more effectively in mitigating risks. While CVE focuses
+            on identification, it works in conjunction with systems like the
+            Common Vulnerability Scoring System (CVSS), which rates the severity
+            of these vulnerabilities. By providing a unified way to reference
+            security issues, CVE ensures consistency and helps streamline the
+            vulnerability management process.
+          </p>
+          <h3 class="article-section-title">What is the use of CVE??</h3>
+          <p class="article-content">
+            The use of CVE lies in its role as a standardized system for
+            identifying and categorizing vulnerabilities in software and
+            hardware, making it a critical tool in cybersecurity. Here are the
+            primary uses:
+          </p>
+          <p class="article-content">
+            <b>1. Vulnerability Identification:</b> CVE provides a unique
+            identifier for each publicly known vulnerability, allowing security
+            professionals to reference specific issues consistently across
+            different platforms, tools, and databases.
+          </p>
+          <p class="article-content">
+            <b>2. Improved Communication:</b> By standardizing vulnerability
+            naming, CVE helps researchers, developers, and organizations
+            communicate more effectively about specific security flaws, reducing
+            confusion caused by different naming conventions.
+          </p>
+          <p class="article-content">
+            <b>3. Risk Prioritization:</b> Organizations can use CVE to identify
+            vulnerabilities in their systems and prioritize remediation efforts
+            based on the severity or criticality of the identified issues. This
+            is often done in conjunction with CVSS scores.
+          </p>
+          <p class="article-content">
+            <b>4. Automation:</b> Many security tools and patch management
+            systems use CVE identifiers to automate vulnerability detection and
+            patching processes, helping organizations maintain secure
+            environments without manual intervention.
+          </p>
+          <p class="article-content">
+            <b>5. Tracking and Reporting:</b> CVE allows organizations to track
+            known vulnerabilities over time, facilitating reporting and
+            monitoring for compliance, auditing, or risk management purposes.
+          </p>
+          <p class="article-content">
+            By providing a common language for describing and addressing
+            vulnerabilities, CVE enhances the efficiency of cybersecurity
+            practices, improves communication, and supports proactive risk
+            management across industries.
+          </p>
+
+          <p class="article-content">
+            Now it't time fot the fun part and It's time to answer the questin
+            <b>How I stay updated with CVEs?</b>
+            For this task we are going to use the Shodan's CVE Database and some
+            command line trick. Here is the command.
+          </p>
+          <!-- Code Section -->
+          <div class="code-block">
+            <p>curl https://cvedb.shodan.io/cves | jq | grep "cve_id"</p>
+          </div>
+          <!-- Image Section -->
+          <div class="image-section">
+            <div class="image-container">
+              <img
+                src="How-I-stay-updated-with-CVEs.png"
+                alt="How-I-stay-updated-with-CVEs"
+                class="fancy-image"
+              />
+              <p class="image-caption">Command and Result</p>
+            </div>
+          </div>
+
+          <p class="article-content">
+            <b>Wait!!!!!!!!!Wait!!!!!!!!!Wait</b>
+            Dont' Go and Read full article. Because this part is more importent.
+            Now that we know the command and saw the result let's break-down the
+            command.
+          </p>
+          <h3 class="article-section-title">Breaking Down the command.</h3>
+          <p class="article-content">The command</p>
+          <div class="code-block">
+            <p>curl https://cvedb.shodan.io/cves | jq | grep "cve_id"</p>
+          </div>
+          <p class="article-content">
+            is designed to retrieve a list of CVEs (Common Vulnerabilities and
+            Exposures) from a Shodan database, format the output, and filter for
+            specific CVE IDs. Here’s a breakdown of each part:
+          </p>
+          <div class="code-block">
+            <p>curl https://cvedb.shodan.io/cves :</p>
+          </div>
+          <p class="article-content">This part uses the</p>
+          <div class="code-block">
+            <p>curl</p>
+          </div>
+          <p class="article-content">
+            command to make an HTTP request to the URL
+          </p>
+          <div class="code-block">
+            <p>https://cvedb.shodan.io/cves</p>
+          </div>
+          <p class="article-content">
+            which likely returns a list of CVEs in JSON format. curl retrieves
+            the raw data from the Shodan CVE database.
+          </p>
+          <div class="code-block">
+            <p>| jq :</p>
+          </div>
+          <p class="article-content">
+            The pipe <i>(|)</i>takes the output from the <i>curl</i> command and
+            passes it to <i>jq</i>, which is a command-line tool for processing
+            JSON data. This will pretty-print the JSON output, making it easier
+            to read and work with.
+          </p>
+          <div class="code-block">
+            <p>| grep "cve_id"</p>
+          </div>
+          <p class="article-content">
+            The final part of the command pipes the formatted JSON output to
+            <i>grep</i>, a command used to search for specific strings in the
+            input. In this case, it searches for any lines containing the string
+            <i>"cve_id"</i>, which is the field where CVE identifiers are
+            stored.
+          </p>
+          <h3 class="article-section-title">Overall Function:</h3>
+          <p class="article-content">
+            This command fetches the latest CVE data from Shodan, formats it
+            into readable JSON, and then extracts only the lines that include
+            CVE IDs, allowing you to see a list of the vulnerabilities by their
+            unique identifiers.
+          </p>
+          <p class="article-content">
+            I hope this will help you. If you have any question fill free to
+            <a href="https://r3dw4n48m3d.github.io/Portfolio/contact.html"
+              >Send me a Message</a
+            >
+            Thanks for Reading. Happy Hacking :
+            <h3>Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh</h3>
+          </p>
+          <footer class="footer">
+            <a href="../writeUps.html" class="back-link">← Back to Writeups</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script src="writeups.js"></script>
+  </body>
+</html>
